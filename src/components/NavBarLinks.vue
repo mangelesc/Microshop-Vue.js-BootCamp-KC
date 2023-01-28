@@ -37,7 +37,11 @@ export default defineComponent({
 <style scoped>
 nav {
     min-height: 50px;
-    background-color: coral;
+    background-color: #d59c86;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 17% 15px 17%;
 }
 
 ul {
@@ -53,8 +57,12 @@ li {
 a {
     color: white;
     text-decoration: none;
+    font-size: 14pt;
+    padding: 10px;
+    text-shadow: #454851 1px 1px 2px;
 }
-a:visited {
-    color: white;
+a:hover {
+    color: #454851;
+    font-weight: bolder;
 }
 </style>

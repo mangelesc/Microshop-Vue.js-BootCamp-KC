@@ -1,15 +1,36 @@
 <template>
-    <NavBarLinks></NavBarLinks>
+    <CustomHeader></CustomHeader>
     <router-view />
+    <custom-footer>
+        <template v-slot:leftfootersection>
+            <div>
+                <h5>Práctica Vue.js</h5>
+                <h4><n>Mª Ángeles Córdoba</n></h4>
+            </div>
+        </template>
+    </custom-footer>
+    <CartList v-show="isCartOpen" />
 </template>
+
 <script lang="ts">
 import { defineComponent } from "vue";
-import NavBarLinks from "./components/NavBarLinks.vue";
+import CustomHeader from "@/components/CustomHeader.vue";
+import CustomFooter from "@/components/CustomFooter.vue";
+import CartList from "./components/CartList.vue";
+import { useCart } from "./composables/useCart";
 
 export default defineComponent({
     name: "AppComponent",
     components: {
-        NavBarLinks,
+        CustomHeader,
+        CustomFooter,
+        CartList,
+    },
+    setup() {
+        const { isCartOpen } = useCart();
+        return {
+            isCartOpen,
+        };
     },
 });
 </script>
@@ -23,24 +44,14 @@ export default defineComponent({
     margin: 0;
 }
 
+router-view {
+    background-color: #dddddd;
+}
+
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: Arvo;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-}
-
-nav {
-    padding: 30px;
-}
-
-nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-    color: #42b983;
+    color: #454851;
 }
 </style>

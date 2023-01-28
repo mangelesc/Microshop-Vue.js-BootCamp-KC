@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+router-view {
+    background-color: #dddddd;
+}
+
+#app {
+    font-family: Arvo;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #ffffff;
+}
