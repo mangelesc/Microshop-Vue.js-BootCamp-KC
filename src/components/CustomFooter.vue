@@ -50,6 +50,7 @@ export default defineComponent({
 <style scoped>
 .footer {
     background: #454851;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-around;

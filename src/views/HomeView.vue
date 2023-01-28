@@ -3,12 +3,12 @@
         <SeachBar msg="MicroShop App" />
     </div>
     <div class="home">
-        <div v-if="isLoading">Cargando...</div>
-        <div class="user-list" v-else>
-            <UserItem
-                v-for="user in users"
-                :key="user.id"
-                :user="user"
+        <div v-if="isLoading">Loading...</div>
+        <div class="product-list" v-else>
+            <ProductItem
+                v-for="product in products"
+                :key="product.id"
+                :product="product"
                 @addCart="addElementToCart"
                 @goDetail="goDetail"
             />
@@ -19,31 +19,31 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import SeachBar from "@/components/SeachBar.vue";
-import useUsers from "@/composables/useUsers";
-import UserItem from "@/components/UserItem.vue";
+import useProducts from "@/composables/useProducts";
+import ProductItem from "@/components/ProductItem.vue";
 import { useCart } from "@/composables/useCart";
-import { User } from "@/models/user";
-import { useRouter } from "vue-router"; // @ is an alias to /src
+import { Product } from "@/models/product";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
     name: "HomeView",
     components: {
         SeachBar,
-        UserItem,
+        ProductItem,
     },
     setup() {
-        const { users, isLoading, fetchUsers } = useUsers();
+        const { products, isLoading, fetchProducts } = useProducts();
         const { addElementToCart } = useCart();
         const router = useRouter();
 
-        fetchUsers();
+        fetchProducts([0, 10]);
 
         return {
-            users,
+            products,
             isLoading,
             addElementToCart,
-            goDetail: (user: User) =>
-                router.push({ name: "detail", params: { id: user.id } }),
+            goDetail: (product: Product) =>
+                router.push({ name: "detail", params: { id: product.id } }),
         };
     },
 });
