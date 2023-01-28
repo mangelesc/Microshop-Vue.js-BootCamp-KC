@@ -22,6 +22,9 @@ const actions: ActionTree<IAuthState, IState> = {
             alert("Oops, invalid user/password");
         }
     },
+
+    // CheckToken
+    // LogOut
 };
 
 export default actions;

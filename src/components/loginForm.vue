@@ -24,18 +24,18 @@
                                         </h4>
                                     </div>
 
-                                    <form>
+                                    <form @submit.prevent="loginFunc">
                                         <div class="form-outline mb-4">
                                             <label
                                                 class="form-label"
                                                 for="form2Example11"
-                                                >Username</label
+                                                >email</label
                                             >
                                             <input
                                                 type="email"
-                                                id="form2Example11"
                                                 class="form-control"
-                                                placeholder="Username"
+                                                placeholder="Write your email"
+                                                v-model="emailInput"
                                             />
                                         </div>
 
@@ -47,16 +47,16 @@
                                             >
                                             <input
                                                 type="password"
-                                                id="form2Example22"
                                                 class="form-control"
                                                 placeholder="Password"
+                                                v-model="PasswordInput"
                                             />
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button
                                                 class="btn btn-primary btn-block fa-lg mb-3"
-                                                type="button"
+                                                type="submit"
                                             >
                                                 Log in
                                             </button>
@@ -93,11 +93,38 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import fetchAuth from "@/composables/useAuth";
+import axios from "axios";
+import { Auth } from "@/models/auth";
 
 export default defineComponent({
     name: "LoginForm",
     props: {
         msg: String,
+    },
+    data() {
+        return {
+            emailInput: "",
+            PasswordInput: "",
+        };
+    },
+    methods: {
+        async loginFunc() {
+            var payload: Auth = {
+                email: this.emailInput,
+                password: this.PasswordInput,
+            };
+            console.log(payload);
+            await axios
+                .post("https://api.escuelajs.co/api/v1/auth/login", payload)
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((error) => {
+                    var data = error.response.data;
+                    alert("User not found");
+                });
+        },
     },
 });
 </script>
