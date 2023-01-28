@@ -5,8 +5,6 @@ const useProducts = () => {
     const store = useStore();
 
     return {
-        //propiedad computada que llama al getter
-
         // GETTERS
         products: computed(() => store.getters["products/getProducts"]),
         isLoading: computed(() => store.getters["products/getIsLoading"]),
