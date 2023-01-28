@@ -54,8 +54,8 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: space-around;
-    max-height: 70px;
-    padding: 30px;
+    max-height: 120px;
+    padding: 50px 0;
 }
 
 .imgFooter {
@@ -69,6 +69,5 @@ export default defineComponent({
 }
 .leftfootersection {
     color: #ffffff;
-    font: #ffffff;
 }
 </style>

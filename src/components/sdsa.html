@@ -1,0 +1,65 @@
+<div class="shell">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="wsk-cp-product">
+                    <div class="wsk-cp-img">
+                        <img
+                            :src="product.images[0]"
+                            :alt="product.title"
+                            class="img-responsive"
+                        />
+                    </div>
+                    <div class="wsk-cp-text">
+                        <div class="category">
+                            <span>{{ product.category.name }}</span>
+                        </div>
+                        <div class="title-product">
+                            <h3>{{ product.title }}</h3>
+                        </div>
+                        <div class="description-prod">
+                            <p>{{ product.description }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="wcf-left">
+                                <span class="price">{{ product.price }} €</span>
+                            </div>
+                            <div class="wcf-right">
+                                <a
+                                    @click="$emit('goDetail', product)"
+                                    class="buy-btn"
+                                    ><i class="zmdi zmdi-shopping-basket"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product-item">
+    <div class="product-avatar">
+        <img :src="product.images[0]" :alt="product.title" />
+    </div>
+    <div class="product-info">
+        <div class="product-name">{{ product.title }}</div>
+        <div class="product-email">{{ product.title }}</div>
+        <div class="product-category">{{ product.category.name }}</div>
+        <div class="buttons">
+            <button
+                class="btn btn-sm btn-primary"
+                @click="$emit('addCart', product)"
+            >
+                Al Carro
+            </button>
+            <button
+                class="btn btn-sm btn-success"
+                @click="$emit('goDetail', product)"
+            >
+                Detalle
+            </button>
+        </div>
+    </div>
+</div>

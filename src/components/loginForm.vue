@@ -1,8 +1,4 @@
 <template>
-    <div class="formTittle">
-        <h1>{{ msg }}</h1>
-    </div>
-
     <section class="h-100 gradient-form" style="background-color: #eee">
         <div class="container py-5 h-100">
             <div
@@ -26,23 +22,22 @@
 
                                     <form @submit.prevent="loginFunc">
                                         <div class="form-outline mb-4">
-                                            <label
-                                                class="form-label"
-                                                for="form2Example11"
-                                                >email</label
+                                            <label class="form-label"
+                                                >User mail</label
                                             >
                                             <input
                                                 type="email"
                                                 class="form-control"
-                                                placeholder="Write your email"
+                                                placeholder="myemail@email.com"
                                                 v-model="emailInput"
+                                                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                                                tittle="Oops invalid email"
+                                                required
                                             />
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label
-                                                class="form-label"
-                                                for="form2Example22"
+                                            <label class="form-label"
                                                 >Password</label
                                             >
                                             <input
@@ -50,12 +45,13 @@
                                                 class="form-control"
                                                 placeholder="Password"
                                                 v-model="PasswordInput"
+                                                required
                                             />
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button
-                                                class="btn btn-primary btn-block fa-lg mb-3"
+                                                class="btn btn-primary btn-block btn-lg fa-lg mb-3"
                                                 type="submit"
                                             >
                                                 Log in
@@ -70,9 +66,9 @@
                                 <div
                                     class="text-white px-3 py-4 p-md-5 mx-md-4"
                                 >
-                                    <h4 class="mb-4">
-                                        We are more than just a company
-                                    </h4>
+                                    <h2 class="mb-4">
+                                        <B class="tittle">Microshop</B>
+                                    </h2>
                                     <p class="small mb-0">
                                         Lorem ipsum dolor sit amet, consectetur
                                         adipisicing elit, sed do eiusmod tempor
@@ -136,21 +132,51 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.tittle {
+    font-family: "Caveat", cursive !important;
+    font-size: 70pt;
+}
+.btn {
+    padding: 15px 30px;
+    background-color: #d59c86;
+    color: #454851;
+    font-size: 20pt;
+    font-weight: bolder;
+    text-shadow: #b39f9f 1px 1px 2px;
+}
+
+.form-control:hover {
+    background-color: #d59c868c;
+    border: solid 1px #f3f3f4;
+    box-shadow: 0 0 4px #6c6d70;
+}
+.form-control:focus {
+    background-color: white;
+    border: solid 1px #f3f3f4;
+    box-shadow: 0 0 4px #d59c86;
+}
+
+.btn:hover {
+    color: #ffffff;
+    font-weight: bolder;
+    text-shadow: #454851 1px 1px 2px;
+}
 .gradient-custom-2 {
     /* fallback for old browsers */
     background: #d59c86;
 
     /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(
-        to right,
-        #a1a17d,
-        #e9e3aa,
-        #e9e3aa,
-        #d59c86
+    background: linear-gradient(
+        0deg,
+        rgba(161, 161, 125, 1) 0%,
+        rgba(213, 156, 134, 1) 100%
     );
-
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, #454851, #d59c86, #d59c86, #d59c86);
+    background: linear-gradient(
+        0deg,
+        rgba(161, 161, 125, 1) 0%,
+        rgba(213, 156, 134, 1) 100%
+    );
 }
 
 @media (min-width: 768px) {

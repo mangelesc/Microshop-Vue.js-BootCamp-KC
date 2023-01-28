@@ -39,6 +39,7 @@ export default defineComponent({
 * {
     padding: 0;
     margin: 0;
+    font-family: Arvo;
 }
 
 router-view {
