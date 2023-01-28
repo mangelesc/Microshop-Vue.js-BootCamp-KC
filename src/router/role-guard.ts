@@ -10,6 +10,10 @@ const tokenUser = (to: RouteLocation, from: RouteLocation, next: any) => {
             .get("auth/profile")
             .then((response: any) => {
                 if (response.request.status === 200) {
+                    console.log(response.data.id);
+                    if (localStorage.getItem("idUser") != response.data.id) {
+                        localStorage.setItem("idUser", response.data.id);
+                    }
                     next();
                 }
             })

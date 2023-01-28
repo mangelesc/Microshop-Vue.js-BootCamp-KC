@@ -7,7 +7,7 @@ const getters: GetterTree<IUsersState, IState> = {
         return state.isLoading;
     },
     getUser(state) {
-        return state.selectedUser;
+        return state.loggedUser;
     },
 };
 export default getters;

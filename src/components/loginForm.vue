@@ -122,7 +122,6 @@ export default defineComponent({
                 .then((response) => {
                     fakeShopApi.defaults.headers.common["Authorization"] =
                         "Bearer " + response.data;
-                    localStorage.setItem("loggedUser", JSON.stringify(payload));
                     localStorage.setItem("token", response.data.access_token);
                     console.log(response);
                     router.push("/");

@@ -7,11 +7,6 @@
             <li>
                 <router-link :to="{ name: 'profile' }">My Profile</router-link>
             </li>
-            <!-- <li>
-                <router-link :to="{ name: 'detail', params: { id: 1 } }"
-                    >Detail</router-link
-                >
-            </li> -->
             <li>
                 <router-link :to="{ name: 'about' }"
                     >About this App</router-link

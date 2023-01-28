@@ -1,5 +1,4 @@
 <template>
-    <CustomHeader></CustomHeader>
     <router-view />
     <custom-footer>
         <template v-slot:leftfootersection>
@@ -14,7 +13,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import CustomHeader from "@/components/CustomHeader.vue";
 import CustomFooter from "@/components/CustomFooter.vue";
 import CartList from "./components/CartList.vue";
 import { useCart } from "./composables/useCart";
@@ -22,7 +20,6 @@ import { useCart } from "./composables/useCart";
 export default defineComponent({
     name: "AppComponent",
     components: {
-        CustomHeader,
         CustomFooter,
         CartList,
     },

@@ -7,7 +7,7 @@ const mutations: MutationTree<IUsersState> = {
         state.isLoading = value;
     },
     setSelectedUser(state, user: User) {
-        state.selectedUser = user;
+        state.loggedUser = user;
     },
 };
 

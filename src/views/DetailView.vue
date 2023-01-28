@@ -1,4 +1,5 @@
 <template>
+    <CustomHeader></CustomHeader>
     <div v-if="!isLoading">
         <h1>{{ product.title }}</h1>
         <h2>Description: {{ product.description }}</h2>
@@ -16,10 +17,14 @@
 
 <script lang="ts">
 import { useCart } from "@/composables/useCart";
+import CustomHeader from "@/components/CustomHeader.vue";
 import useProducts from "@/composables/useProducts";
 import { defineComponent } from "vue";
 
 export default defineComponent({
+    components: {
+        CustomHeader,
+    },
     props: {
         id: {
             type: Number,

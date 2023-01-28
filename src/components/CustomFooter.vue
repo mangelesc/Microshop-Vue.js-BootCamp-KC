@@ -33,12 +33,12 @@ export default defineComponent({
                     {
                         label: "",
                         link: "https://linkedin.com/in/mariaangelescordoba/",
-                        img: "./assets/linkedin.png",
+                        img: "scr/assets/imgs/linkedin.png",
                     },
                     {
                         label: "",
                         link: "https://www.github.com/mangelesc",
-                        img: "./assets/imgs/github.png",
+                        img: "scr/assets/imgs/github.png",
                     },
                 ];
             },
