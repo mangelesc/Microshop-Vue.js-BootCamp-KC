@@ -1,12 +1,12 @@
 import { Module } from "vuex";
 import { IState } from "..";
-import { IUsersState } from "./state";
+import { IAuthState } from "./state";
 import state from "./state";
 import getters from "./getters";
 import mutations from "./mutations";
 import actions from "./actions";
 
-const usersModule: Module<IUsersState, IState> = {
+const authModule: Module<IAuthState, IState> = {
     namespaced: true,
     state,
     getters,
@@ -14,4 +14,4 @@ const usersModule: Module<IUsersState, IState> = {
     actions,
 };
 
-export default usersModule;
+export default authModule;

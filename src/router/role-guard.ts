@@ -1,18 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { RouteLocation } from "vue-router";
 
-const haveRoleGuard = (to: RouteLocation, from: RouteLocation, next: any) => {
+const tokenUser = (to: RouteLocation, from: RouteLocation, next: any) => {
     console.log(to, from, next);
 
-    const userRole = localStorage.getItem("userRole");
+    const userToken = localStorage.getItem("token");
 
-    if (userRole === "Admin") {
+    // meter token de la API
+    if (userToken === "Admin") {
         // queremos navegar!
         next();
     } else {
-        alert("No eres admin! No puedes pasar!");
-        next({ name: "home" });
+        alert("Oops! You're not allowed here!");
+        next({ name: "login" });
     }
 };
 
-export default haveRoleGuard;
+export default tokenUser;
