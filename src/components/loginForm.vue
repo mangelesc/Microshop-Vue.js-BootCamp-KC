@@ -94,8 +94,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import fetchAuth from "@/composables/useAuth";
-import axios from "axios";
 import { Auth } from "@/models/auth";
+import axios, { AxiosHeaders } from "axios";
+import router from "@/router";
+import fakeShopApi from "@/api/fakeShopApi";
 
 export default defineComponent({
     name: "LoginForm",
@@ -115,14 +117,19 @@ export default defineComponent({
                 password: this.PasswordInput,
             };
             console.log(payload);
-            await axios
+            await fakeShopApi
                 .post("https://api.escuelajs.co/api/v1/auth/login", payload)
                 .then((response) => {
+                    fakeShopApi.defaults.headers.common["Authorization"] =
+                        "Bearer " + response.data;
+                    localStorage.setItem("loggedUser", JSON.stringify(payload));
+                    localStorage.setItem("token", response.data.access_token);
                     console.log(response);
+                    router.push("/");
                 })
                 .catch((error) => {
                     var data = error.response.data;
-                    alert("User not found");
+                    alert("Oops! User not found");
                 });
         },
     },

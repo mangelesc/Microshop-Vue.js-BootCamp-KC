@@ -1,3 +1,4 @@
+import tokenUser from "@/router/role-guard";
 import axios, { AxiosHeaders } from "axios";
 
 const fakeShopApi = axios.create({
@@ -5,9 +6,9 @@ const fakeShopApi = axios.create({
     // params: {
     //     key: 'lasdkfjlsdkjfgñslkhjgvlfdskhgñ349u039dfv8fhrh0943'
     // },
-    // headers: {
-    //     'x-token': 'kodsjflksdjfklsdjfklñsdj'
-    // }
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
 });
 
 fakeShopApi.interceptors.request.use((config) => {

@@ -1,10 +1,12 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import tokenUser from "./role-guard";
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
         name: "home",
+        beforeEnter: [tokenUser],
         component: HomeView,
     },
     {
@@ -16,12 +18,14 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: "/profile",
         name: "profile",
+        beforeEnter: [tokenUser],
         component: () =>
             import(/* webpackChunkName: "about" */ "../views/ProfileView.vue"),
     },
     {
         path: "/detail/:id",
         name: "detail",
+        beforeEnter: [tokenUser],
         component: () =>
             import(/*webpackChunkName: detail*/ "../views/DetailView.vue"),
         props: (route) => {
