@@ -18,8 +18,7 @@ const useAuth = () => {
 
         // ACTIONS
         fetchAuth: (payload: Auth) => store.dispatch("auth/fetchAuth", payload),
-        fetchCheckToken: (token: string) =>
-            store.dispatch("auth/fetchCheckToken", token),
+        fetchCheckToken: () => store.dispatch("auth/fetchCheckToken"),
     };
 };
 

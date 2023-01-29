@@ -110,7 +110,7 @@ export default defineComponent({
             };
             console.log(payload);
             await fakeShopApi
-                .post("/auth/login", payload)
+                .post("auth/login", payload)
                 .then((response) => {
                     fakeShopApi.defaults.headers.common["Authorization"] =
                         "Bearer " + response.data;

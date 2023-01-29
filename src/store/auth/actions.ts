@@ -31,9 +31,9 @@ const actions: ActionTree<IAuthState, IState> = {
     },
 
     // CheckToken Function
-    async fetchCheckToken({ commit }, token: string) {
-        const valid = false;
+    async fetchCheckToken({ commit }) {
         commit("setAuthenticating", true);
+        const token = localStorage.getItem("token");
         if (token != null) {
             await fakeShopApi
                 .get("auth/profile")
@@ -46,18 +46,15 @@ const actions: ActionTree<IAuthState, IState> = {
                             localStorage.setItem("idUser", response.data.id);
                         }
                     }
-                    const valid = true;
+                    commit("setisisAuthenticated", true);
                 })
                 .catch((error) => {
-                    router.push("/login");
                     alert("Oops! User not found");
                 });
         } else {
-            router.push("/login");
             alert("Oops! You're not allowed here!");
         }
         commit("setAuthenticating", false);
-        return valid;
     },
 };
 
