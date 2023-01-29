@@ -6,11 +6,14 @@ const mutations: MutationTree<IAuthState> = {
     setAuthenticating(state: IAuthState, newValue: boolean) {
         state.authenticating = newValue;
     },
-    setisAuthenticating(state: IAuthState, newValue: boolean) {
+    setisisAuthenticated(state: IAuthState, newValue: boolean) {
         state.isAuthenticated = newValue;
     },
     setuserAuth(state: IAuthState, newValue: User) {
         state.userAuth = newValue;
+    },
+    setUserToken(state: IAuthState, newValue: string) {
+        state.userToken = newValue;
     },
     setLogOut(state: IAuthState, newValue: boolean) {
         state.isAuthenticated = false;

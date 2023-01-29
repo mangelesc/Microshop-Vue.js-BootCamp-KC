@@ -12,5 +12,8 @@ const getters: GetterTree<IAuthState, IState> = {
     getuserAuth(state: IAuthState) {
         return state.userAuth;
     },
+    setUserToken(state: IAuthState, newValue: string) {
+        return state.userToken;
+    },
 };
 export default getters;

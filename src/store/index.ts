@@ -6,30 +6,18 @@ import productsModule from "./products";
 import authModule from "./auth";
 
 export interface IState {
-    authUser: boolean;
-    greeting: string;
+    user?: User;
 }
 
 export default createStore<IState>({
-    state: {
-        authUser: false,
-        greeting: "Hola a todas!",
-    },
-    mutations: {
-        cambiaSaludo(state, saludo: string) {
-            state.greeting = saludo;
-        },
-    },
-    getters: {
-        saludo(state) {
-            return state.greeting;
-        },
-    },
+    state: {},
+    mutations: {},
+    getters: {},
     actions: {},
     modules: {
+        auth: authModule,
         cart: cartModule,
         users: usersModule,
         products: productsModule,
-        auth: authModule,
     },
 });
