@@ -12,8 +12,11 @@
                     >About this App</router-link
                 >
             </li>
-            <li>
+            <li v-if="idUser != null">
                 <router-link :to="{ name: 'login' }">Log Out</router-link>
+            </li>
+            <li v-else>
+                <router-link :to="{ name: 'login' }">Log In</router-link>
             </li>
         </ul>
     </nav>
@@ -24,7 +27,10 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
     setup() {
-        return {};
+        const idUser = localStorage.getItem("idUser");
+        return {
+            idUser,
+        };
     },
 });
 </script>
@@ -32,11 +38,12 @@ export default defineComponent({
 <style scoped>
 nav {
     min-height: 50px;
+    max-height: 90px;
     background-color: #d59c86;
     padding: 10px;
     display: flex;
     justify-content: flex-end;
-    padding: 15px 17% 15px 17%;
+    padding: 15px 17% 10px 17%;
 }
 
 ul {

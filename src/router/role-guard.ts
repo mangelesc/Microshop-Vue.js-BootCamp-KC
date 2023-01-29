@@ -13,6 +13,7 @@ const tokenUser = (to: RouteLocation, from: RouteLocation, next: any) => {
                     console.log(response.data.id);
                     if (localStorage.getItem("idUser") != response.data.id) {
                         localStorage.setItem("idUser", response.data.id);
+                        localStorage.setItem("nameUser", response.data.name);
                     }
                     next();
                 }

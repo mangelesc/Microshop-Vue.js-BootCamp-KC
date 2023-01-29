@@ -11,7 +11,8 @@ const useProducts = () => {
         product: computed(() => store.getters["products/getProduct"]),
 
         // ACTIONS
-        fetchProducts: (pag: number[]) =>
+        // Por defecto para que busque los 12 primeros productos, sin flto de título
+        fetchProducts: (pag: any[] = [0, 12, ""]) =>
             store.dispatch("products/fetchProducts", pag),
         fetchProductById: (productId: number) =>
             store.dispatch("products/fetchProductById", productId),

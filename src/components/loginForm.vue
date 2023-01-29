@@ -88,9 +88,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import fetchAuth from "@/composables/useAuth";
 import { Auth } from "@/models/auth";
-import axios, { AxiosHeaders } from "axios";
 import router from "@/router";
 import fakeShopApi from "@/api/fakeShopApi";
 
