@@ -23,8 +23,11 @@ Se debe consultar la documentación de la API en caso de error con el usuario y 
 ## Demo
 
 ![Log In](./src/assets/imgs/demo1.jpg)
+
 ![Microshop](./src/assets/imgs/demo2.jpg)
+
 ![Detalle de Producto](./src/assets/imgs/demo4.jpg)
+
 ![Perfil de usuario](./src/assets/imgs/demo3.jpg)
 
 ## Puesta en marcha
