@@ -24,6 +24,7 @@ const actions: ActionTree<IAuthState, IState> = {
             })
             .catch((error) => {
                 alert("Oops! User not found");
+                router.push("/login");
             });
 
         commit("setAuthenticating", false);
@@ -34,7 +35,7 @@ const actions: ActionTree<IAuthState, IState> = {
         const valid = false;
         commit("setAuthenticating", true);
         if (token != null) {
-            const valido = fakeShopApi
+            await fakeShopApi
                 .get("auth/profile")
                 .then((response: any) => {
                     if (response.request.status === 200) {
@@ -45,12 +46,14 @@ const actions: ActionTree<IAuthState, IState> = {
                             localStorage.setItem("idUser", response.data.id);
                         }
                     }
+                    const valid = true;
                 })
                 .catch((error) => {
-                    const data = error.response.data;
+                    router.push("/login");
                     alert("Oops! User not found");
                 });
         } else {
+            router.push("/login");
             alert("Oops! You're not allowed here!");
         }
         commit("setAuthenticating", false);

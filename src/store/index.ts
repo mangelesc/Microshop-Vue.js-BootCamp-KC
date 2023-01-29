@@ -6,13 +6,24 @@ import productsModule from "./products";
 import authModule from "./auth";
 
 export interface IState {
-    user?: User;
+    authUser: User | null;
+    greeting: string;
 }
-
 export default createStore<IState>({
-    state: {},
-    mutations: {},
-    getters: {},
+    state: {
+        authUser: null,
+        greeting: "Hola a todas!",
+    },
+    mutations: {
+        cambiaSaludo(state, saludo: string) {
+            state.greeting = saludo;
+        },
+    },
+    getters: {
+        saludo(state) {
+            return state.greeting;
+        },
+    },
     actions: {},
     modules: {
         auth: authModule,

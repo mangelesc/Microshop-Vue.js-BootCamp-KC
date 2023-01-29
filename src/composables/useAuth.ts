@@ -5,18 +5,21 @@ import { useStore } from "vuex";
 const useAuth = () => {
     const store = useStore();
 
-    const logout = () => {};
-
     return {
         // GETTERS
-        Authenticating: computed(
-            () => store.getters["users/getAuthenticating"]
+        isAuthenticated: computed(
+            () => store.getters["auth/getisAuthenticated"]
         ),
-        userAuth: computed(() => store.getters["users/getuserAuth"]),
-        idToken: computed(() => store.getters["users/getidToken"]),
+        userAuth: computed(() => store.getters["auth/getuserAuth"]),
+        userToken: computed(() => store.getters["auth/getUserToken"]),
+
+        //MUTATIONS
+        logOut: () => store.commit("cart/setLogOut"),
 
         // ACTIONS
-        fetchAuth: (login: Auth) => store.dispatch("users/fetchAuth", login),
+        fetchAuth: (payload: Auth) => store.dispatch("auth/fetchAuth", payload),
+        fetchCheckToken: (token: string) =>
+            store.dispatch("auth/fetchCheckToken", token),
     };
 };
 

@@ -4,6 +4,7 @@ import { RouteLocation } from "vue-router";
 const tokenUser = (to: RouteLocation, from: RouteLocation, next: any) => {
     const userToken = localStorage.getItem("token");
 
+    // CheckToken Function - actions Autn...
     // meter token de la API
     if (userToken != null) {
         const valido = fakeShopApi
