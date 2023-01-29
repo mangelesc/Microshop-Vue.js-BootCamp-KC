@@ -11,8 +11,8 @@
                                 <div class="card-body p-md-5 mx-md-4">
                                     <div class="text-center">
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                                            style="width: 185px"
+                                            src="@/assets/imgs/logo.jpg"
+                                            style="width: 350px"
                                             alt="logo"
                                         />
                                         <h4 class="mt-1 mb-5 pb-1">
@@ -69,12 +69,10 @@
                                         <B class="tittle">Microshop</B>
                                     </h2>
                                     <p class="small mb-0">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
+                                        <ul>
+                                            <li class="bullet"> <b>Email: </b> john@mail.com</li>
+                                            <li class="bullet"> <b>Password: </b> changeme</li>
+                                        </ul>
                                     </p>
                                 </div>
                             </div>
@@ -129,6 +127,11 @@ export default defineComponent({
 .tittle {
     font-family: "Caveat", cursive !important;
     font-size: 70pt;
+    padding: 0px 35px;
+}
+.bullet{
+    font-size: 25pt;
+    padding: 0px 25px;
 }
 .btn {
     padding: 15px 30px;
@@ -156,21 +159,8 @@ export default defineComponent({
     text-shadow: #454851 1px 1px 2px;
 }
 .gradient-custom-2 {
-    /* fallback for old browsers */
-    background: #d59c86;
 
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        0deg,
-        rgba(161, 161, 125, 1) 0%,
-        rgba(213, 156, 134, 1) 100%
-    );
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(
-        0deg,
-        rgba(161, 161, 125, 1) 0%,
-        rgba(213, 156, 134, 1) 100%
-    );
+    background-image: url("@/assets/imgs/imgLogin.jpg")
 }
 
 @media (min-width: 768px) {

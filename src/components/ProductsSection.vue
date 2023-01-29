@@ -28,7 +28,6 @@
                     v-for="product in products"
                     :key="product.id"
                     :product="product"
-                    @addCart="addElementToCart"
                     @goDetail="goDetail"
                 />
             </div>
@@ -43,7 +42,6 @@
 import { defineComponent, ref } from "vue";
 import useProducts from "@/composables/useProducts";
 import ProductItem from "@/components/ProductItem.vue";
-import { useCart } from "@/composables/useCart";
 import { Product } from "@/models/product";
 import { useRouter } from "vue-router";
 import { controlledComputed } from "@vueuse/core";
@@ -56,7 +54,6 @@ export default defineComponent({
 
     setup() {
         const { products, isLoading, fetchProducts } = useProducts();
-        const { addElementToCart } = useCart();
         const router = useRouter();
         const nombre = localStorage.getItem("nameUser");
         const searchInput = ref<string>("");
@@ -72,7 +69,6 @@ export default defineComponent({
             nombre,
             products,
             isLoading,
-            addElementToCart,
             goDetail: (product: Product) =>
                 router.push({ name: "detail", params: { id: product.id } }),
         };

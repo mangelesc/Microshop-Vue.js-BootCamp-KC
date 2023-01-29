@@ -1,36 +1,28 @@
 <template>
-    <CustomHeader></CustomHeader>
-    <router-view />
-    <custom-footer>
-        <template v-slot:leftfootersection>
-            <div>
-                <h5>Práctica Vue.js</h5>
-                <h4><n>Mª Ángeles Córdoba</n></h4>
-            </div>
-        </template>
-    </custom-footer>
-    <CartList v-show="isCartOpen" />
+    <v-app>
+        <CustomHeader></CustomHeader>
+        <router-view />
+        <custom-footer>
+            <template v-slot:leftfootersection>
+                <div>
+                    <h5>Práctica Vue.js</h5>
+                    <h4><n>Mª Ángeles Córdoba</n></h4>
+                </div>
+            </template>
+        </custom-footer>
+    </v-app>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import CustomHeader from "@/components/CustomHeader.vue";
 import CustomFooter from "@/components/CustomFooter.vue";
-import CartList from "./components/CartList.vue";
-import { useCart } from "./composables/useCart";
 
 export default defineComponent({
     name: "AppComponent",
     components: {
         CustomHeader,
         CustomFooter,
-        CartList,
-    },
-    setup() {
-        const { isCartOpen } = useCart();
-        return {
-            isCartOpen,
-        };
     },
 });
 </script>

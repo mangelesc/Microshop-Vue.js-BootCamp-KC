@@ -1,3 +1,0 @@
-<template>
-    <h2>About the App</h2>
-</template>

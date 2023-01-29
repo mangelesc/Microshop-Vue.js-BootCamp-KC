@@ -7,11 +7,6 @@
             <li>
                 <router-link :to="{ name: 'profile' }">My Profile</router-link>
             </li>
-            <li>
-                <router-link :to="{ name: 'about' }"
-                    >About this App</router-link
-                >
-            </li>
             <li v-if="idUser != null" @click="logOut">
                 <router-link :to="{ name: 'login' }">Log Out</router-link>
             </li>
