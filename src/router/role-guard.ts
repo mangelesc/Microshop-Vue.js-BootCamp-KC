@@ -1,5 +1,6 @@
 import fakeShopApi from "@/api/fakeShopApi";
 import { RouteLocation } from "vue-router";
+import useAuth from "@/composables/useAuth";
 
 const tokenUser = (to: RouteLocation, from: RouteLocation, next: any) => {
     const userToken = localStorage.getItem("token");

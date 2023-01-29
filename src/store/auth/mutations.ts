@@ -19,6 +19,8 @@ const mutations: MutationTree<IAuthState> = {
     setLogOut(state: IAuthState) {
         state.isAuthenticated = false;
         localStorage.removeItem("token");
+        localStorage.removeItem("idUser");
+        localStorage.removeItem("nameUser");
         state.isAuthenticated = false;
         state.userAuth = null;
         state.userToken = null;

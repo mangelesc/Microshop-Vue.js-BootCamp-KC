@@ -12,10 +12,10 @@
                     >About this App</router-link
                 >
             </li>
-            <li v-if="idUser != null">
+            <li v-if="idUser != null" @click="logOut">
                 <router-link :to="{ name: 'login' }">Log Out</router-link>
             </li>
-            <li v-else>
+            <li v-else @click="logOut">
                 <router-link :to="{ name: 'login' }">Log In</router-link>
             </li>
         </ul>
@@ -24,11 +24,15 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import useAuth from "@/composables/useAuth";
 
 export default defineComponent({
     setup() {
         const idUser = localStorage.getItem("idUser");
+        const { logOut } = useAuth();
+
         return {
+            logOut,
             idUser,
         };
     },

@@ -14,7 +14,7 @@ const useAuth = () => {
         userToken: computed(() => store.getters["auth/getUserToken"]),
 
         //MUTATIONS
-        logOut: () => store.commit("cart/setLogOut"),
+        logOut: () => store.commit("auth/setLogOut"),
 
         // ACTIONS
         fetchAuth: (payload: Auth) => store.dispatch("auth/fetchAuth", payload),
