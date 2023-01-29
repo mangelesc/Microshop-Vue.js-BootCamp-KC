@@ -1,5 +1,4 @@
 <template>
-    <CustomHeader></CustomHeader>
     <div v-if="!isLoading">
         <h1>Nombre: {{ user.name }}</h1>
         <h2>Email: {{ user.email }}</h2>
@@ -12,13 +11,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useUsers from "@/composables/useUsers";
-import CustomHeader from "@/components/CustomHeader.vue";
 import { User } from "@/models/user";
 
 export default defineComponent({
-    components: {
-        CustomHeader,
-    },
+    components: {},
     props: {},
     setup() {
         const { user, fetchUserById, isLoading } = useUsers();

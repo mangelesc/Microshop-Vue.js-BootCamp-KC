@@ -28,10 +28,9 @@
                                             <input
                                                 type="email"
                                                 class="form-control"
-                                                placeholder="myemail@email.com"
+                                                placeholder="myemai@microshop.com"
                                                 v-model="emailInput"
                                                 pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                                                tittle="Oops invalid email"
                                                 required
                                             />
                                         </div>
@@ -97,9 +96,6 @@ import fakeShopApi from "@/api/fakeShopApi";
 
 export default defineComponent({
     name: "LoginForm",
-    props: {
-        msg: String,
-    },
     data() {
         return {
             emailInput: "",
@@ -108,13 +104,13 @@ export default defineComponent({
     },
     methods: {
         async loginFunc() {
-            var payload: Auth = {
+            const payload: Auth = {
                 email: this.emailInput,
                 password: this.PasswordInput,
             };
             console.log(payload);
             await fakeShopApi
-                .post("https://api.escuelajs.co/api/v1/auth/login", payload)
+                .post("/auth/login", payload)
                 .then((response) => {
                     fakeShopApi.defaults.headers.common["Authorization"] =
                         "Bearer " + response.data;

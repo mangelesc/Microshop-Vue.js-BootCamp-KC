@@ -1,4 +1,4 @@
-import { Auth } from "@/models/auth";
+import { User } from "@/models/user";
 import { MutationTree } from "vuex";
 import { IAuthState } from "./state";
 
@@ -6,11 +6,15 @@ const mutations: MutationTree<IAuthState> = {
     setAuthenticating(state: IAuthState, newValue: boolean) {
         state.authenticating = newValue;
     },
-    setUserAuth(state, newValue: Auth) {
+    setisAuthenticating(state: IAuthState, newValue: boolean) {
+        state.isAuthenticated = newValue;
+    },
+    setuserAuth(state: IAuthState, newValue: User) {
         state.userAuth = newValue;
     },
-    getidToken(state, newValue: string) {
-        state.idToken = newValue;
+    setLogOut(state: IAuthState, newValue: boolean) {
+        state.isAuthenticated = false;
+        localStorage.removeItem("token");
     },
 };
 

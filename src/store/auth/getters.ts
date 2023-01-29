@@ -3,14 +3,14 @@ import { IState } from "..";
 import { IAuthState } from "./state";
 
 const getters: GetterTree<IAuthState, IState> = {
-    getAuthenticating(state) {
+    getAuthenticating(state: IAuthState) {
         return state.authenticating;
     },
-    getuserAuth(state) {
-        return state.userAuth;
+    getsetisAuthenticating(state: IAuthState) {
+        return state.isAuthenticated;
     },
-    getidToken(state) {
-        return state.idToken;
+    getuserAuth(state: IAuthState) {
+        return state.userAuth;
     },
 };
 export default getters;

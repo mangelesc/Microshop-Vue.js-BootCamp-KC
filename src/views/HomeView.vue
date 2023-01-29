@@ -1,5 +1,4 @@
 <template>
-    <CustomHeader></CustomHeader>
     <div class="home">
         <SeachBar msg="MicroShop App" />
     </div>
@@ -19,7 +18,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import CustomHeader from "@/components/CustomHeader.vue";
 import SeachBar from "@/components/SeachBar.vue";
 import useProducts from "@/composables/useProducts";
 import ProductItem from "@/components/ProductItem.vue";
@@ -30,7 +28,6 @@ import { useRouter } from "vue-router";
 export default defineComponent({
     name: "HomeView",
     components: {
-        CustomHeader,
         SeachBar,
         ProductItem,
     },

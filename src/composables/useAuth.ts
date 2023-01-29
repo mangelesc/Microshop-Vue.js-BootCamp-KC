@@ -5,6 +5,8 @@ import { useStore } from "vuex";
 const useAuth = () => {
     const store = useStore();
 
+    const logout = () => {};
+
     return {
         // GETTERS
         Authenticating: computed(

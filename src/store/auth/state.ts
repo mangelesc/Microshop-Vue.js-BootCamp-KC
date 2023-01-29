@@ -1,16 +1,16 @@
-import { Auth } from "@/models/auth";
+import { User } from "@/models/user";
 
 export interface IAuthState {
     authenticating: boolean;
-    userAuth: Auth | null;
-    idToken: string | null;
+    isAuthenticated: boolean;
+    userAuth: User;
 }
 
 function state(): IAuthState {
     return {
         authenticating: false,
-        userAuth: null,
-        idToken: null,
+        isAuthenticated: false,
+        userAuth: { id: -1 },
     };
 }
 export default state;
