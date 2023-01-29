@@ -10,17 +10,20 @@
         <button @click="addElementToCart(product)" class="btn btn-success">
             Añadir al Carrito
         </button>
+        <carrouSel />
     </div>
+
     <div v-else>Loading...</div>
 </template>
 
 <script lang="ts">
 import { useCart } from "@/composables/useCart";
 import useProducts from "@/composables/useProducts";
+import carrouSel from "@/components/carrousel.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-    components: {},
+    components: { carrouSel },
     props: {
         id: {
             type: Number,
