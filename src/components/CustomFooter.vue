@@ -4,15 +4,20 @@
             <slot name="leftfootersection"></slot>
         </div>
         <div>
-            <nav class="imgFooter" v-if="links">
+            <nav class="imgFooter">
                 <a
-                    v-for="link in links"
-                    :key="link.label"
-                    :href="link.link"
-                    :class="link.style"
+                    href="https://github.com/mangelesc"
                     target="_blank"
+                    rel="noopener noreferrer"
                 >
-                    <img class="RRSS" :src="link.img" />
+                    <img class="RRSS" src="@/assets/imgs/github.png" />
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/mariaangelescordoba"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img class="RRSS" src="@/assets/imgs/github.png" />
                 </a>
             </nav>
         </div>
@@ -25,25 +30,6 @@ import { Link } from "@/interfaces/link";
 
 export default defineComponent({
     name: "CustomFooter",
-    props: {
-        links: {
-            type: Array as PropType<Link[]>,
-            default(): Link[] {
-                return [
-                    {
-                        label: "",
-                        link: "https://linkedin.com/in/mariaangelescordoba/",
-                        img: "scr/assets/imgs/linkedin.png",
-                    },
-                    {
-                        label: "",
-                        link: "https://www.github.com/mangelesc",
-                        img: "scr/assets/imgs/github.png",
-                    },
-                ];
-            },
-        },
-    },
 });
 </script>
 
