@@ -131,7 +131,7 @@ export default defineComponent({
 }
 .bullet{
     font-size: 25pt;
-    padding: 0px 25px;
+    padding: 0px 20px;
 }
 .btn {
     padding: 15px 30px;

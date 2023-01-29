@@ -1,16 +1,14 @@
 <template>
-    <v-app>
-        <CustomHeader></CustomHeader>
-        <router-view />
-        <custom-footer>
-            <template v-slot:leftfootersection>
-                <div>
-                    <h5>Práctica Vue.js</h5>
-                    <h4><n>Mª Ángeles Córdoba</n></h4>
-                </div>
-            </template>
-        </custom-footer>
-    </v-app>
+    <CustomHeader></CustomHeader>
+    <router-view />
+    <custom-footer>
+        <template v-slot:leftfootersection>
+            <div>
+                <h5>Práctica Vue.js</h5>
+                <h4><n>Mª Ángeles Córdoba</n></h4>
+            </div>
+        </template>
+    </custom-footer>
 </template>
 
 <script lang="ts">
